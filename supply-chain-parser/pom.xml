@@ -1,26 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.peregrine.parser</groupId>
+  <groupId>com.peregrine</groupId>
   <artifactId>supply-chain-parser</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>supply-chain-parser</name>
+  <!-- Cài đặt chuẩn output UTF-8 và trình biên dịch -->
   <properties>
-    <!-- Ép toàn bộ dự án dùng UTF-8 để tránh lỗi hiển thị tiếng Việt hoặc ký tự đặc biệt -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- Cấu hình phiên bản Java (Nên dùng ít nhất là 8 hoặc 11/17 nếu máy bạn có cài) -->
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.release>21</maven.compiler.release>
   </properties>
+  <!-- Gói phụ thuộc -->
   <dependencies>
-    <!-- JUnit 5 (Jupiter) để viết Test -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>5.10.0</version>
       <scope>test</scope>
     </dependency>
-    <!-- Cần thêm engine này để thực sự chạy được test trên Maven -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
@@ -30,7 +27,6 @@
   </dependencies>
   <build>
     <plugins>
-      <!-- Plugin giúp Maven biên dịch code Java chuẩn hơn -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
