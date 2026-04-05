@@ -15,5 +15,8 @@ public class Main {
 
     Barcode barcode3 = new Barcode(null);
     System.out.println("Test 3 (expect false): " + validator.validate(barcode3));
+
+    Barcode barcode = new Barcode("40063813339AB");
+    System.out.println("Test have character (expect false): " + validator.validate(barcode));
   }
 }

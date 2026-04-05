@@ -11,9 +11,26 @@ public class BarcodeValidator {
     // Đây gọi là Short-circuit evaluation.
     // Với toán tử `||` nếu vế trái là `true` thì vế phải không được evaluate.
     // Đối với toán tử `&&` nêu vế trái là `false` thì vế phải không được evaluate
-    if (value == null || value.length() != 13) {
+
+    // thứ tự check còn quyết định về hiệu năng
+    // fail fast - loại bỏ trường hợp sai càng sớm càng tốt.
+    if (value == null) { // chi phí hiệu năng rẻ nhất
       return false;
     }
+
+    if (value.length() != 13) { // chi phí rẻ
+      return false;
+    }
+
+    // regex phải compiler pattern, scan toàn chuỗi
+    if (!value.matches("\\d{13}")) { // chi phí đắt nhất
+      // `//1` đúng 1 ký tự (0-9)
+      // {13} lặp lại 13 lần
+      return false;
+    }
+
+    // Patern này có tên: Gaurd Clause xử lý hết trường hợp invalid ở đầu method, return sớm. phần
+    // còn lại của method chỉ xử lý lý happy path.
 
     int sum = 0;
     for (int i = 0; i < 12; ++i) {
