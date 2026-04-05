@@ -82,3 +82,23 @@ Maven có 3 vai trò cốt lõi mà nó đảm nhiệm:
 > [!NOTE]
 > Các phase trong Maven chay theo thứ tự cộng dồn, nếu ta chạy `mvn íntall` nó sẽ chạy tuần tự như sau:
 > `validate` $\rightarrow$ `compile` $\rightarrow$ `test` $\rightarrow$ `package` $\rightarrow$ `verify` $\rightarrow$ `install`
+
+## Maven Convention
+
+Maven có một quy ước gọi là Standard Directory Layout. Mọi project Maven trên thế giới đều dùng cấu trúc này:
+src/
+├── main/
+│ ├── java/ ← code chạy thật (production code)
+│ └── resources/ ← file đi kèm với production code (CSV, config,...)
+└── test/
+├── java/ ← code test
+└── resources/ ← file chỉ dùng khi test (mock data, ...)
+Lý do resources nằm cạnh java trong main:
+
+Khi Maven build, nó copy toàn bộ src/main/resources/ vào target/classes/ — cùng chỗ với bytecode .class. Khi chương trình chạy, classpath trỏ vào target/classes/, nên code Java có thể đọc file CSV bằng getResourceAsStream() mà không cần biết đường dẫn tuyệt đối trên máy.
+
+Bạn đã thấy điều này trong output lúc nãy:
+Copying 1 resource from src/main/resources to target/classes
+Maven tự làm việc đó cho bạn.
+
+📌 Phỏng vấn: "Tại sao không dùng đường dẫn tuyệt đối như /home/user/project/data.csv?" — Vì code deploy lên server thì đường dẫn đó không tồn tại. Dùng classpath resource thì file luôn đi kèm với JAR, chạy ở đâu cũng được.
