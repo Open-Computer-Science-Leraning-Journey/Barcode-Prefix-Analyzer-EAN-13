@@ -1,0 +1,1 @@
+📌 Keyword final: Khi bạn khai báo private final String rawValue, Java sẽ không cho phép bạn gán lại giá trị đó sau khi constructor chạy xong. Nếu bạn thử thêm setRawValue() vào class này và compile, Java sẽ báo lỗi ngay. Đây là cách ngôn ngữ enforce immutability ở compile time, không phải runtime.
