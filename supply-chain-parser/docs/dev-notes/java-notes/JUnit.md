@@ -6,6 +6,8 @@ JUnit đảm bảo rằng các method của chính ta viết chạy tự động
 
 JUnit sẽ tự động hóa khi đẩy lên github, nếu như code không pass test, ngay lập tức nó sẽ bị reject và không đẩy lên máy chủ thật.
 
+JUnit có thể chay riêng từng test, và có thể chạy lại bất cứ lúc nào.
+
 ## Anotation
 
 **Anotation** được dùng để đánh dấu để được khiển các luồng test
