@@ -1,0 +1,1 @@
+📌 Phỏng vấn: Câu hỏi hay gặp — "git mv khác git add/rm như thế nào?". Trả lời: git mv là shortcut làm 2 việc cùng lúc — move file trên filesystem và stage luôn. Kết quả cuối cùng trong commit history giống hệt nhau. Bạn vừa làm thủ công 2 bước mà git mv làm trong 1 bước.
