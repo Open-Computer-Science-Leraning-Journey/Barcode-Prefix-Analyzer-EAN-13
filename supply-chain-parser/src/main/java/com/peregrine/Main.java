@@ -1,6 +1,7 @@
 package com.peregrine;
 
 import com.peregrine.model.Barcode;
+import com.peregrine.service.GS1PrefixService;
 import com.peregrine.validator.BarcodeValidator;
 
 public class Main {
@@ -18,5 +19,10 @@ public class Main {
 
     Barcode barcode = new Barcode("40063813339AB");
     System.out.println("Test have character (expect false): " + validator.validate(barcode));
+
+    GS1PrefixService gs1 = new GS1PrefixService();
+    System.out.println("893... -> " + gs1.lookup("8931234567890"));
+    System.out.println("400... -> " + gs1.lookup("4006381333931"));
+    System.out.println("690... -> " + gs1.lookup("6901234567890"));
   }
 }
