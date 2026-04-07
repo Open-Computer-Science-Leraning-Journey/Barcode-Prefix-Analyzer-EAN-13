@@ -1,6 +1,6 @@
 package com.peregrine.service;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,38 +14,38 @@ public class GS1PrefixServiceTest {
   }
 
   @Test
-  void shouldReturnVietNamWhenInputIs893() {
+  void shouldReturnVietNamWhenPrefixIs893() {
     String result = service.lookup("8931234567890");
-    assertTrue(result.equals("Vietnam"));
+    assertEquals("Vietnam", result);
   }
 
   @Test
-  void shouldReturnGermanyWhenInputIs400() {
+  void shouldReturnGermanyWhenPrefixIs400() {
     String result = service.lookup("4006381333931");
-    assertTrue(result.equals("Germany"));
+    assertEquals("Germany", result);
   }
 
   @Test
-  void shouldReturnChinaWhenInputIs695() {
+  void shouldReturnChinaWhenPrefixIs695() {
     String result = service.lookup("6951234567890");
-    assertTrue(result.equals("China"));
+    assertEquals("China", result);
   }
 
   @Test
   void shouldReturnUnknownWhenInputIsNull() {
     String result = service.lookup(null);
-    assertTrue(result.equals("Unknown"));
+    assertEquals("Unknown", result);
   }
 
   @Test
-  void shouldReturnUnknownWhenInputIsLessThan13Character() {
+  void shouldReturnUnknownWhenInputIsLessThan3Character() {
     String result = service.lookup("89");
-    assertTrue(result.equals("Unknown"));
+    assertEquals("Unknown", result);
   }
 
   @Test
   void shouldReturnUnknownWhenInputIsInvalid() {
     String result = service.lookup("000");
-    assertTrue(result.equals("Unknown"));
+    assertEquals("Unknown", result);
   }
 }
