@@ -19,3 +19,22 @@ JUnit có thể chay riêng từng test, và có thể chạy lại bất cứ l
 - `@AfterEach`: Chạy sau mỗi bài test (thường dùng để xóa dữ liệu rác)
 
 - `ParameterizedTest`: Cho phép chạy 1 bài test với 100 danh sách 100 mã vạch khác nhau cùng lúc
+
+  Nghich cách viết khác
+
+  @ParameterizedTest(name = "Input {0} should return {1}")
+  @CsvSource({
+  "8931234567890, Vietnam",
+  "4006381333931, Germany",
+  "6951234567890, China",
+  "0000000000000, Unknown",
+  "89, Unknown"
+  })
+  void shouldReturnCorrectCountry(String barcode, String expectedCountry) {
+  assertEquals(expectedCountry, service.lookup(barcode), () -> "Failed for barcode" + barcode);
+  }
+
+  @Test
+  void shouldReturnUnknownWhenInputIsNull() {
+  assertEquals("Unknown", service.lookup(null));
+  }
