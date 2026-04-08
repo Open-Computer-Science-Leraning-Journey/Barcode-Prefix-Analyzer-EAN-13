@@ -23,3 +23,5 @@ Những tình huống nằm ngoài tầm kiểm soát của chương trình như
 - đọc file nhưng bị xóa file giữa chừng
 - mất kết nối db đột ngột
 - hết RAM
+
+📌 Phỏng vấn: "Dependency Injection là gì?" — Thay vì class tự tạo dependency của mình, dependency được truyền từ ngoài vào. Giúp code dễ test, dễ thay thế implementation.
