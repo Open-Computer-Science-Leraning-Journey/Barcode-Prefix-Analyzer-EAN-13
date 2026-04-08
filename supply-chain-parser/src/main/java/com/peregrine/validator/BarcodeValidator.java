@@ -4,6 +4,11 @@ import com.peregrine.model.Barcode;
 
 public class BarcodeValidator {
   public boolean validate(Barcode barcode) {
+    // Denial of Service - spam request null.
+    // Global exception handler
+    if (barcode == null) {
+      return false;
+    }
     String value = barcode.getRawValue();
 
     // Câu lệnh điều kiện đọc từ trái sang phải, nếu đổi thứ tự, chương trình sẽ bị crash.
