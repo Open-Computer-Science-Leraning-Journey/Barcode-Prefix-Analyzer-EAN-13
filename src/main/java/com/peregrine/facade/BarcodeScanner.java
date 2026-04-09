@@ -16,7 +16,6 @@ public class BarcodeScanner {
     BarcodeResponse barcodeResponse = barcodeProcessor.process(barcode);
 
     return String.format(
-        "Barcode: %s\nAuthentication: %s\nCountry: %s",
-        barcode.getRawValue(), barcodeResponse.isValid(), barcodeResponse.getCountry());
+        "Barcode: %s\nCountry: %s", barcode.getRawValue(), barcodeResponse.getCountry());
   }
 }
