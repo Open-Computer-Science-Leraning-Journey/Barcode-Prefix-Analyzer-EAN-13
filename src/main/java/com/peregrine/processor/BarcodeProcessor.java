@@ -15,11 +15,10 @@ public class BarcodeProcessor {
   }
 
   public BarcodeResponse process(Barcode barcode) {
-    boolean isValid = barcodeValidator.validate(barcode);
-    if (isValid) {
+    if (barcodeValidator.validate(barcode)) {
       String country = gs1PrefixService.lookup(barcode.getRawValue());
-      return new BarcodeResponse(country, isValid);
+      return new BarcodeResponse(country);
     }
-    return new BarcodeResponse("Unknown", isValid);
+    return new BarcodeResponse("Unknown");
   }
 }
