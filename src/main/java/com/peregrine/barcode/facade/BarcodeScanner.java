@@ -1,8 +1,8 @@
-package com.peregrine.facade;
+package com.peregrine.barcode.facade;
 
-import com.peregrine.model.Barcode;
-import com.peregrine.model.BarcodeResponse;
-import com.peregrine.processor.BarcodeProcessor;
+import com.peregrine.barcode.model.Barcode;
+import com.peregrine.barcode.model.BarcodeResponse;
+import com.peregrine.barcode.processor.BarcodeProcessor;
 
 public class BarcodeScanner {
   private final BarcodeProcessor barcodeProcessor;

@@ -1,11 +1,11 @@
-package com.peregrine.service;
+package com.peregrine.barcode.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class GS1PrefixServiceTest {
+public class GS1PrefixSeviceTest {
   private GS1PrefixService service;
 
   @BeforeEach

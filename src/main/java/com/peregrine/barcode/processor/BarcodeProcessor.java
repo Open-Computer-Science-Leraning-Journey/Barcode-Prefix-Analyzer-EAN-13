@@ -1,9 +1,9 @@
-package com.peregrine.processor;
+package com.peregrine.barcode.processor;
 
-import com.peregrine.model.Barcode;
-import com.peregrine.model.BarcodeResponse;
-import com.peregrine.service.GS1PrefixService;
-import com.peregrine.validator.BarcodeValidator;
+import com.peregrine.barcode.model.Barcode;
+import com.peregrine.barcode.model.BarcodeResponse;
+import com.peregrine.barcode.service.GS1PrefixService;
+import com.peregrine.barcode.validator.BarcodeValidator;
 
 public class BarcodeProcessor {
   private final BarcodeValidator barcodeValidator;
@@ -16,8 +16,7 @@ public class BarcodeProcessor {
 
   public BarcodeResponse process(Barcode barcode) {
     if (barcodeValidator.validate(barcode)) {
-      String country = gs1PrefixService.lookup(barcode.getRawValue());
-      return new BarcodeResponse(country);
+      return new BarcodeResponse(gs1PrefixService.lookup(barcode.getRawValue()));
     }
     return new BarcodeResponse("Unknown");
   }

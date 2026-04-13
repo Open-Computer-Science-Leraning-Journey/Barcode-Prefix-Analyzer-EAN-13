@@ -1,4 +1,4 @@
-package com.peregrine.model;
+package com.peregrine.barcode.model;
 
 public class BarcodeResponse {
   private final String country;

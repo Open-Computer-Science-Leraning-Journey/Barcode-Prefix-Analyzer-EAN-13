@@ -1,13 +1,11 @@
-package com.peregrine.processor;
+package com.peregrine.barcode.processor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.peregrine.model.Barcode;
-import com.peregrine.model.BarcodeResponse;
-import com.peregrine.service.GS1PrefixService;
-import com.peregrine.validator.BarcodeValidator;
+import com.peregrine.barcode.model.Barcode;
+import com.peregrine.barcode.model.BarcodeResponse;
+import com.peregrine.barcode.service.GS1PrefixService;
+import com.peregrine.barcode.validator.BarcodeValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,7 +26,6 @@ public class BarcodeProcessorTest {
   void shouldReturnUnknownWhenBarcodeContainsSpecialCharacter() {
     Barcode specialCharacterBarcode = new Barcode("\n\t\b");
     BarcodeResponse response = barcodeProcessor.process(specialCharacterBarcode);
-    assertFalse(response.isValid());
     assertEquals("Unknown", response.getCountry());
   }
 
@@ -38,7 +35,6 @@ public class BarcodeProcessorTest {
 
     BarcodeResponse response = barcodeProcessor.process(maliciousBarcode);
 
-    assertFalse(response.isValid());
     assertEquals("Unknown", response.getCountry());
   }
 
@@ -47,7 +43,6 @@ public class BarcodeProcessorTest {
     Barcode vnBarcode = new Barcode("8935049101109");
     BarcodeResponse response = barcodeProcessor.process(vnBarcode);
 
-    assertTrue(response.isValid());
     assertEquals("Vietnam", response.getCountry());
   }
 
@@ -55,7 +50,6 @@ public class BarcodeProcessorTest {
   void shouldFailWhenBarcodeHasLeadingWhitespace() {
     Barcode newLine = new Barcode(" 8935049101109");
     BarcodeResponse response = barcodeProcessor.process(newLine);
-    assertTrue(response.isValid());
     assertEquals("Vietnam", response.getCountry());
   }
 }

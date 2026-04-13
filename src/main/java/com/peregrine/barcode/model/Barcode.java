@@ -1,7 +1,5 @@
-package com.peregrine.model;
+package com.peregrine.barcode.model;
 
-// Dữ liệu thô, nó không cần bản thân nó đúng hay không
-// Pure data object
 public class Barcode {
   private final String rawValue;
 
