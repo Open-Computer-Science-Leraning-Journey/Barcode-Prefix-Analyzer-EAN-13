@@ -2,6 +2,8 @@
 
 Dự án này được tạo ra với mục đích phục vụ cho bản thân tôi, cụ thể khi tôi nhìn vào _barcode_ và tôi muốn tìm hiểu xem đằng sau _barcode_ đó có ý nghĩa gì và nó hoạt động ra sao.
 
+Chương trình của tôi chỉ focus vào EAN-13 vì đây là mã phổ thông tôi gặp thường ngày cũng như các sản phẩm ma tôi thường dùng cũng sử dụng mã này nhiều nhất.
+
 ## Mô tả
 
 Một chương trình nhỏ phân tích mã vạch dựa trên tiêu chuẩn GS1. Hệ thống không chỉ kiểm tra định dạng mà còn thực hiện xác thực thực thông qua logic thông qua thuật toán số kiểm tra (Check Digit) và truy xuất nguồn gốc xuất xứ.
@@ -48,8 +50,7 @@ mvn exec:java -Dexec.mainClass="com.peregrine.Main"
 ```bash
 8935049101109
 Barcode: 8935049101109
-Authentication: true
-Country: Vietnam
+Country: China
 ```
 
 ## Cấu trúc Project
