@@ -49,7 +49,7 @@ mvn exec:java -Dexec.mainClass="com.peregrine.Main"
 8935049101109
 Barcode: 8935049101109
 Authentication: true
-Country: Vietnam
+Country: Germany
 ```
 
 ## Cấu trúc Project
